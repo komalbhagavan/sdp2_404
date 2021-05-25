@@ -1,0 +1,96 @@
+<html>
+<body>
+
+<% 
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+import sqlite3
+import nltk
+import string
+from textblob import TextBlob
+from wordcloud import WordCloud, STOPWORDS
+con = sqlite3.connect('E:\Wrappers-India-Online-master/db.sqlite3')
+df = pd.read_sql_query("SELECT * FROM saler_productreview", con)
+TextBlob(df['review'][0]).sentiment.polarity
+## takes 3 mins 
+polarity=[] # list which will contain the polarity of the comments
+
+for i in df['review']:
+    try:
+        polarity.append(TextBlob(i).sentiment.polarity)   
+    except:
+        polarity.append(0)
+
+data=df.copy()
+
+data['polarity']=polarity
+
+data['polarity'].nunique()
+
+data_positive = data[data['polarity']>0]
+data_positive.shape
+
+
+stopwords=set(STOPWORDS)
+
+positive=data_positive[0:200000]
+
+
+total_text= (' '.join(data_positive['review']))
+len(total_text)
+
+total_text[0:10000]
+
+import re
+total_text=re.sub('[^a-zA-Z]',' ',total_text)
+total_text
+
+
+
+## remove extra spaces
+total_text=re.sub(' +',' ',total_text)
+
+total_text[0:10000]
+
+
+len(total_text)
+
+
+wordcloud = WordCloud(width = 1000, height = 500,stopwords=stopwords).generate(total_text)
+plt.figure(figsize=(15,5))
+plt.imshow(wordcloud)
+plt.axis('off')
+
+
+
+
+
+
+%>
+<% for i in range(10): %> 
+<%= i %>*<%= i %> : <b> <%= i*i %> </b>
+<iframe src="https://trinket.io/embed/python/db10127b05" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+<html><head>
+
+
+<!-- Load require.js. Delete this if your page already loads require.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js" crossorigin="anonymous"></script>
+<script type="application/vnd.jupyter.widget-state+json">
+{
+    "version_major": 2,
+    "version_minor": 0,
+    "state": {}
+}
+</script>
+</head>
+<body>
+
+
+</body>
+</html>
+
+</body>
+</html>

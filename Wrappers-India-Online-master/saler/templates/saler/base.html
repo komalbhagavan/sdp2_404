@@ -1,0 +1,181 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+
+<head style="font-family: economicaregular;">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<meta content="" name="keywords">
+	<meta content="" name="description">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<link href="{% static 'main/images/favicon.png' %}" rel="icon">
+	<link href="{% static 'main/css/bootstrap.min.css' %}" rel="stylesheet">
+	<link href="{% static 'saler/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+	<link href="{% static 'saler/css/style.css' %}" rel="stylesheet">
+	<title>Wrappers India Online</title>
+
+	{% block saler_head %}
+	{% endblock saler_head %}
+</head>
+
+<body style="background: #e2eaef; font-family: 'Open Sans', sans-serif;">
+	<div class="side_nav" id="nav" style="z-index: 99;">
+		<a onclick="menuDisp()" onmouseenter="document.getElementById('wallet').style.left = '-400px';"
+			data-toggle="tooltip" data-placement="top" title="Menu"><i class="fa fa-bars a" aria-hidden="true"></i>
+		</a>
+		<a onmouseenter="document.getElementById('wallet').style.left = '-400px';" href="{% url 'saler_home' %}"
+			data-toggle="tooltip" data-placement="top" title="Home"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-shop" viewBox="0 0 16 16">
+  <path d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0zM1.5 8.5A.5.5 0 0 1 2 9v6h1v-5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v5h6V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5zM4 15h3v-5H4v5zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3zm3 0h-2v3h2v-3z"/>
+</svg>
+		</a>
+		<a onmouseenter="document.getElementById('wallet').style.left = '-400px';" href="{% url 'dashboard' %}"
+			data-toggle="tooltip" data-placement="top" title="Dashboard"><i class="fa fa-tachometer"
+				aria-hidden="true"></i>
+				
+		<a onmouseenter="document.getElementById('wallet').style.left = '-400px';" href="{% url 'dataanalysis' %}"
+			data-toggle="tooltip" data-placement="top" title="DATA-ANALYSIS"> <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-clipboard-data" viewBox="0 0 16 16">
+  <path d="M4 11a1 1 0 1 1 2 0v1a1 1 0 1 1-2 0v-1zm6-4a1 1 0 1 1 2 0v5a1 1 0 1 1-2 0V7zM7 9a1 1 0 0 1 2 0v3a1 1 0 1 1-2 0V9z"/>
+  <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+  <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+</svg>
+				
+		</a>
+		<a onmouseenter="document.getElementById('wallet').style.left = '-400px';" href="{% url 'add_product' %}"
+			data-toggle="tooltip" data-placement="top" title="Add Product"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
+  <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"/>
+  <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+</svg></a>
+		<a onmouseenter="document.getElementById('wallet').style.left = '-400px';" href="{% url 'view_products' %}"
+			data-toggle="tooltip" data-placement="top" title="View My Products"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-binoculars" viewBox="0 0 16 16">
+  <path d="M3 2.5A1.5 1.5 0 0 1 4.5 1h1A1.5 1.5 0 0 1 7 2.5V5h2V2.5A1.5 1.5 0 0 1 10.5 1h1A1.5 1.5 0 0 1 13 2.5v2.382a.5.5 0 0 0 .276.447l.895.447A1.5 1.5 0 0 1 15 7.118V14.5a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 14.5v-3a.5.5 0 0 1 .146-.354l.854-.853V9.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v.793l.854.853A.5.5 0 0 1 7 11.5v3A1.5 1.5 0 0 1 5.5 16h-3A1.5 1.5 0 0 1 1 14.5V7.118a1.5 1.5 0 0 1 .83-1.342l.894-.447A.5.5 0 0 0 3 4.882V2.5zM4.5 2a.5.5 0 0 0-.5.5V3h2v-.5a.5.5 0 0 0-.5-.5h-1zM6 4H4v.882a1.5 1.5 0 0 1-.83 1.342l-.894.447A.5.5 0 0 0 2 7.118V13h4v-1.293l-.854-.853A.5.5 0 0 1 5 10.5v-1A1.5 1.5 0 0 1 6.5 8h3A1.5 1.5 0 0 1 11 9.5v1a.5.5 0 0 1-.146.354l-.854.853V13h4V7.118a.5.5 0 0 0-.276-.447l-.895-.447A1.5 1.5 0 0 1 12 4.882V4h-2v1.5a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V4zm4-1h2v-.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5V3zm4 11h-4v.5a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5V14zm-8 0H2v.5a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5V14z"/>
+</svg></a>
+
+		<a href="##" data-container="body" data-toggle="popover" data-placement="right" data-trigger="focus"
+					data-html="true"
+					data-content="<a href='{% url 'saler_account_settings' %}'>Account Settings</a>" onmouseenter="document.getElementById('wallet').style.left = '-400px';" data-toggle="tooltip"
+			 title="User Profile"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
+  <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
+</svg></a>
+
+		<a onmouseenter="document.getElementById('wallet').style.left = '-400px';" href="{% url 'logout' %}"
+			data-toggle="tooltip" data-placement="top" title="Logout"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+  <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+</svg></a>
+		<div style="bottom: 0; position: absolute;"><a
+				onmouseenter="document.getElementById('wallet').style.left = '40px';" data-toggle="tooltip"
+				data-placement="top" title="Wrappers"><img src="{% static 'main/images/wrapper_logo.png' %}"
+					style="width: 80%" class="mb-1"></a>
+		</div>
+	</div>
+	<!-- menu -->
+	<nav id="menu" style="display: none; z-index: 98">
+		<ul>
+			<!--<li class="active">
+				 <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Men's
+					Wear</a>
+				<ul class="collapse list-unstyled" id="homeSubmenu">
+					<li>
+						<a href="#">Lipistic</a>
+					</li>
+					<li>
+						<a href="#">Chappal</a>
+					</li>
+					<li>
+						<a href="#">Sandil</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">Foodwear</a>
+			</li>
+			<li>
+				<a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Women's
+					Wear</a>
+				<ul class="collapse list-unstyled" id="pageSubmenu">
+					<li>
+						<a href="#">Lipistic</a>
+					</li>
+					<li>
+						<a href="#">Chappal</a>
+					</li>
+					<li>
+						<a href="#">Pata na ka</a>
+					</li>
+				</ul>
+			</li>-->
+			<li>
+				<a href="/contact">Contact Us</a>
+			</li> 
+			<li>
+				<a href="#">Terms & Conditions</a>
+			</li>
+		</ul>
+		<section style="bottom: 0; position: absolute; width: 100%; background-color: #231f20; color: #fff;">
+			<i class="fa fa-facebook-official" aria-hidden="true"></i>
+			<i class="fa fa-youtube-play" aria-hidden="true"></i>
+			<i class="fa fa-instagram" aria-hidden="true"></i>
+			<i class="fa fa-twitter-square" aria-hidden="true"></i>
+			<i class="fa fa-linkedin-square" aria-hidden="true"></i>
+			<i class="fa fa-rss-square" aria-hidden="true"></i>
+			| &copy; 2020
+		</section>
+	</nav>
+
+	<!-- wallet -->
+	<div align="center" style="align-items: center; margin: 0; padding: 0; display: inline;">
+		<ul class="wallet" id="wallet" style="z-index: 98;">
+			<li class="p-1">
+				<a href="{% url 'cart' %}"><i class="fa fa-shopping-cart" aria-hidden="true"
+						style="display: block;"><sup style="font-size: 12px;"> (<span
+								id="cart_no">{{cart_element_no}}</span>)</sup></i>View Cart</a>
+			</li>
+			<li class="p-1">
+				<a href="{% url 'seller_orders' %}"><i class="fa fa-archive" aria-hidden="true" style="display: block;"></i>My Orders</a>
+			</li>
+			<!-- <li class="p-1">
+				<a href="#"><i class="fa fa-history" aria-hidden="true" style="display: block;"></i>History</a>
+			</li> -->
+		</ul>
+	</div>
+	<!-- user -->
+	<div class="usr_detail" style="display: none;">
+
+	</div>
+
+	<main id="main">
+		{% block saler_body %}
+		{% endblock saler_body %}
+	</main>
+	{% block saler_js %}
+	{% endblock saler_js %}
+	<script type="text/javascript" src="{% static 'saler/js/main.js' %}"></script>
+	<script type="text/javascript">
+		let path = '{{request.path}}';
+		let elms = document.getElementById('nav').children;
+		for (var i = elms.length - 1; i >= 0; i--) {
+			if (elms[i].pathname == path) {
+				elms[i].style.color = '#be2714'
+			}
+		}
+	</script>
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script type="text/javascript" src="{% static 'main/js/bootstrap.min.js' %}"></script>
+
+	<script>
+		$(document).ready(function () {
+			$('[data-toggle="tooltip"]').tooltip();
+		});
+	</script>
+	<script>
+		$(document).ready(function () {
+			$('[data-toggle="popover"]').popover();
+		});
+	</script>
+</body>
+
+</html>
